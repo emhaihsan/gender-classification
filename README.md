@@ -36,7 +36,7 @@ Dataset ini banyak digunakan secara luas oleh para peneliti dan praktisi dalam k
 ### Data Preparation
 Dari total 200 ribu data yang terdapat pada dataset CelebA, diberikan 5017 untuk diolah oleh tim Indonesia AI. Yang mana setelah ditelusuri terdapat duplikasi sebanyak 17 data sehingga total data yang digunakan adalah berjumlah 5000 gambar. Eksperimen ini tidak berfokus detail ke setiap langkah pada implementasi, melainkan hanya sebagai gambaran sekilas tentang penggunaan transfer learning. Sehingga tidak banyak dilakukan preproses dalam eksperimen ini, selain memastikan tidak ada data duplikat seperti yang sudah disebutkan di atas, eksplorasi data lainnya yang dilakukan adalah dengan melihat bar plot pada label laki-laki dan perempuan.
 
-![gambar distribusi](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/img/grafik.png)
+![gambar distribusi](https://github.com/mhihsan/gender-classification/blob/main/img/grafik.png)
 
 Dapat dilihat bahwa data dengan label 0 (perempuan) memiliki jumlah data yang lebih banyak dibandingkan dengan data dengan label 1 (laki-laki).
 ### Pemodelan
@@ -81,9 +81,9 @@ Authors: François Chollet
 Implementasi transfer learning menggunakan ketiga algoritma dapat dilihat pada link yang terdapat pada tabel di bawah ini:
 | No      | Model       | Fine Tuning di Layer | Link |
 |--- | --- | ---|---|
-| 1   | InceptionV3   | 40 layers terakhir | https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/inception.ipynb |
-| 2 | Resnet50V2 | 52 layer terakhir | https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/resnet.ipynb |
-| 3 | Xception | 30 layer terakhir | https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/xception.ipynb |
+| 1   | InceptionV3   | 40 layers terakhir | https://github.com/mhihsan/gender-classification/blob/main/inception.ipynb |
+| 2 | Resnet50V2 | 52 layer terakhir | https://github.com/mhihsan/gender-classification/blob/main/resnet.ipynb |
+| 3 | Xception | 30 layer terakhir | https://github.com/mhihsan/gender-classification/blob/main/xception.ipynb |
 
 Selain fine-tuning, ketiga notebook di atas dilatih menggunakan parameter yang identik. Parameter yang digunakan adalah sebagai berikut:
 * Ukuran Gambar  : $218 \times 178$
@@ -106,13 +106,13 @@ Berikut hasil dari eksperimen yang dilakukan:
 
 Dari eksperimen yang telah dilakukan, berdasarkan parameter yang telah disebutkan. Model transfer learning dengan InceptionV3 sebagai pre-trained mendapatkan hasil yang paling baik dibandingkan yang lain. Berikut grafik akurasi, loss, dan confusion matrix dari model InceptionV3:
 
-![Grafik Loss](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/img/loss.png)
+![Grafik Loss](https://github.com/mhihsan/gender-classification/blob/main/img/loss.png)
 
-![Grafik Akurasi](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/img/akurasi.png)
+![Grafik Akurasi](https://github.com/mhihsan/gender-classification/blob/main/img/akurasi.png)
 
-![Confusion Matrix](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/img/confusionmatrix.png)
+![Confusion Matrix](https://github.com/mhihsan/gender-classification/blob/main/img/confusionmatrix.png)
 
-![Prediksi Salah](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/img/wrongprediction.png)
+![Prediksi Salah](https://github.com/mhihsan/gender-classification/blob/main/img/wrongprediction.png)
 
 Bisa dilihat bahwa dari 20 epoch yang dijalankan, model sudah konvergen pada epoch-epoch awal. Hal ini juga terjadi pada penerapan model-model lain seperti Resnet dan Xception. Dari sini setidaknya bisa diasumsikan dua hal. Pertama ada kemungkinan bahwa penggunaan learning late $10 \times 10^{-4}$ sudah terlalu besar, karena model ini menggunakan pretrained weight dari imagenet. Kedua ada kemungkinan juga bahwa model sudah bekerja dengan baik dan maksimal, meskipun terlihat tidak meningkat dari segi loss, akurasi pada data tes sudah mencapai di atas 95%, sehingga bisa diasumsikan juga demikian.
 
@@ -121,9 +121,9 @@ Adapun jika kita melihat pada hasil gambar yang salah prediksi, ciri-ciri yang t
 ## Pengaplikasian sederhana dengan Streamlit 
 Untuk mencoba apakah model bisa diimplementasikan ke dalam aplikasi. Dibuat sebuah web app sederhana dengan menggunakan [streamlit](https://streamlit.io/). Tampilan dari aplikasi yang dibuat adalah sebagai berikut:
 
-![streamlit app](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/img/streamlit.png)
+![streamlit app](https://github.com/mhihsan/gender-classification/blob/main/img/streamlit.png)
 
-Kode dari implementasi di atas bisa dilihat [di sini](https://github.com/mhihsan/gender-classification-with-transfer-learning/blob/main/genderclf.py).
+Kode dari implementasi di atas bisa dilihat [di sini](https://github.com/mhihsan/gender-classification/blob/main/genderclf.py).
 
 
 
